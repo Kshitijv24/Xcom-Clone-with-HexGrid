@@ -14,7 +14,7 @@ public class LevelGrid : MonoBehaviour
     [SerializeField] int height;
     [SerializeField] float cellSize;
 
-    GridSystem<GridObject> gridSystem;
+    GridSystemHex<GridObject> gridSystem;
 
     private void Awake()
     {
@@ -26,8 +26,8 @@ public class LevelGrid : MonoBehaviour
         }
         Instance = this;
 
-        gridSystem = new GridSystem<GridObject>(width, height, cellSize, 
-            (GridSystem<GridObject> g, GridPosition gridPosition) => new GridObject(g, gridPosition));
+        gridSystem = new GridSystemHex<GridObject>(width, height, cellSize, 
+            (GridSystemHex<GridObject> g, GridPosition gridPosition) => new GridObject(g, gridPosition));
         //gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
     }
 

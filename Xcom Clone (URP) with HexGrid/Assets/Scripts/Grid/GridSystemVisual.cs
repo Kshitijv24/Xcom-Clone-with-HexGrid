@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GridSystemVisual;
 
 public class GridSystemVisual : MonoBehaviour
 {
@@ -66,6 +67,14 @@ public class GridSystemVisual : MonoBehaviour
         LevelGrid.Instance.OnAnyUnitMoveGridPosition += LevelGrid_OnAnyUnitMoveGridPosition;
 
         UpdateGridVisual();
+
+        for (int x = 0; x < LevelGrid.Instance.GetWidth(); x++)
+        {
+            for (int z = 0; z < LevelGrid.Instance.GetHeight(); z++)
+            {
+                gridSystemVisualSingleArray[x, z].Show(GetGridVisualTypeMaterial(GridVisualType.White));
+            }
+        }
     }
 
     public void HideAllGridPosition()

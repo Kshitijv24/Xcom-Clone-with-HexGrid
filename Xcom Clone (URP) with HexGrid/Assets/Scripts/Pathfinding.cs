@@ -16,7 +16,7 @@ public class Pathfinding : MonoBehaviour
     int width;
     int height;
     float cellSize;
-    GridSystem<PathNode> gridSystem;
+    GridSystemHex<PathNode> gridSystem;
 
     private void Awake()
     {
@@ -36,10 +36,10 @@ public class Pathfinding : MonoBehaviour
         this.height = height;
         this.cellSize = cellSize;
 
-        gridSystem = new GridSystem<PathNode>(width, height, cellSize,
-            (GridSystem<PathNode> g, GridPosition gridPosition) => new PathNode(gridPosition));
+        gridSystem = new GridSystemHex<PathNode>(width, height, cellSize,
+            (GridSystemHex<PathNode> g, GridPosition gridPosition) => new PathNode(gridPosition));
 
-        gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
+        //gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
 
         for (int x = 0; x < width; x++)
         {
